@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import argparse #abrir o progrmama passando os argumentos via linha de comando
+import time
 
 from grafo import Grafo
 from algoritmosDeOrdenacao import *
 from utils import *
+
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
@@ -20,8 +22,12 @@ if __name__ == "__main__":
 		'shell_sort': shell_sort,
 		'heap_sort': heap_sort,
 		'count_sort': count_sort,
-		'merge_sort': merge_sort
+		'merge_sort': merge_sort,
+		'quick_sort_end': quick_sort_end,
+		'quick_sort_beg':quick_sort_beg,
+		'quick_sort_mid': quick_sort_mid
 	}
+	start = time.time()
 
 	grafo = Grafo()
 	grafo.estabelecerAlgoritmoDeOrdenacao(algoritmos[args.algoritmo])
@@ -29,5 +35,8 @@ if __name__ == "__main__":
 
 	arvoreGeradoraMinima =  grafo.executarKruskal() 
 	SalvarArvoreGeradoraMinimaEmArquivo(args.output, arvoreGeradoraMinima)
+	stop = time.time()
+
+	print("Tempo de execucao: ",stop-start)
 
 	#'./arvores_geradas/insert.txt'

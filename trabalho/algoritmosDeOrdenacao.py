@@ -22,25 +22,37 @@ import random, math
 #   							I N S E R T I O N
 #======================================================================================#
 
+
 class insert_sort(object):
+    comparacao = 0
+    atribuicao = 0
     def ordenar(self, colecao):
         for i in range(1, len(colecao)): # [i] percorrer da pos 1 até a última pos de colecao
             '''print('Vetor ',i,': %s' %colecao) #teste 0'''
             curNum = colecao[i] #coleção
+            self.atribuicao += 1 # ou conta duas atribuições (for e cur)
             '''print('curNum = ',curNum) #teste 1'''
             for j in range (i-1,-1,-1):# [j] percorre da primeira pos
+                
+                self.atribuicao +=1
+                
                 '''print('[J] = ', j)'''
                 if colecao[j]['weight']>curNum['weight']: # procura para frente até encontrar alguém menor que o atual num
+                    self.comparacao += 1
                     temp = colecao[j+1]
                     colecao[j+1] =colecao[j]
                     colecao[j] = temp
+                    self.atribuicao +=3
                     '''
 					print(colecao[j],' >= ',curNum, '= true')  #teste 2
 					print('temp = ',temp)
 					'''
                 else:
                     colecao[j+1] = curNum
+                    self.comparacao += 1
                     break
+        print("Comparacoes:", self.comparacao)
+        print("Atribuicoes:", self.atribuicao)
         return colecao
 #======================================================================================#
 #   					 		S E L E C T I O N
@@ -48,14 +60,23 @@ class insert_sort(object):
 
 
 class select_sort(object):
+    comparacao = 0
+    atribuicao = 0
     def ordenar(self,colecao):
         for i in range (0, len(colecao) - 1) :
             minIndex = i
+            self.atribuicao +=2
             for j in range (i+1, len(colecao)):
+                self.atribuicao +=1
                 if colecao[j]['weight'] < colecao[minIndex]['weight']:
+                    self.comparacao +=1
                     minIndex = j
+                    self.atribuicao +=1
                 if minIndex != i:
                     colecao[i],colecao[minIndex] = colecao[minIndex], colecao[i]
+                    self.atribuicao +=1
+        print("Comparacoes: ", self.comparacao)
+        print("Atribuicoes: ", self.atribuicao)
         return colecao
 #======================================================================================#
 #   							 S H E L L S O R T
@@ -211,7 +232,7 @@ class merge_sort(object):
 #======================================================================================#
 
 #(pivo mediana)
-class quick_sort_Mid(object):
+class quick_sort_mid(object):
     def ordenar(self, colecao):
         self.sort(colecao, 0, len(colecao) - 1)
 
