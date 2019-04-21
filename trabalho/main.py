@@ -14,9 +14,9 @@ if __name__ == "__main__":
 
 
 	parser =argparse.ArgumentParser()
-	parser.add_argument("input", type=str, required=True, dest='arq',help="Quantidade de entrada")
+	parser.add_argument("input", type=str, required=True, dest='arq',help="nome do arquivo de leitura")
 	parser.add_argument("output", type=str, required=True, dest='save', help="Nome do arquivo de Saída")
-	parser.add_argument("algoritmo",  action='store_true', help="Algoritmo de ordenacao")
+	parser.add_argument("algoritmo", dest='insert', action='store_true', help="Algoritmo de ordenacao")
 	
 	args = parser.parse_args()
 	
