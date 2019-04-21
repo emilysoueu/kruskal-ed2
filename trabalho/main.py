@@ -9,9 +9,9 @@ Instruções básicas de como fazer a implementação estão no arquivo algoritm
 
 if __name__ == "__main__":
 
-    algoritimoDeOrdenacao = InsertionSort()
+    algoritimoDeOrdenacao = quick_sort_end()
     arquivoJson = './grafos/7vertices.json'
-    arquivoDeSaida = './arvores_geradas/mst7Vertices.txt'
+    arquivoDeSaida = './arvores_geradas/quickbeg.txt'
 
     grafo = Grafo()
     grafo.estabelecerAlgoritmoDeOrdencao(algoritimoDeOrdenacao)
@@ -19,4 +19,3 @@ if __name__ == "__main__":
 
     arvoreGeradoraMinima =  grafo.executarKruskal() 
     SalvarArvoreGeradoraMinimaEmArquivo(arquivoDeSaida, arvoreGeradoraMinima)
-
