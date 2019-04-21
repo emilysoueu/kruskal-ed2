@@ -10,12 +10,16 @@ Instruções básicas de como fazer a implementação estão no arquivo algoritm
 '''
 
 if __name__ == "__main__":
+
+
+
 	parser =argparse.ArgumentParser()
 	parser.add_argument("input", type=str, required=True, dest='arq',help="Quantidade de entrada")
 	parser.add_argument("output", type=str, required=True, dest='save', help="Nome do arquivo de Saída")
 	parser.add_argument("algoritmo",  action='store_true', help="Algoritmo de ordenacao")
 	
-
+	args = parser.parse_args()
+	
 	#teste
 	if args.algoritmo == "insert":
 		algoritimoDeOrdenacao = insert_sort()
@@ -25,13 +29,13 @@ if __name__ == "__main__":
 
 	if args.save == "arquivoJson":
 		args.save = './arvores_geradas/insert.txt'
-
+	
 	'''
 	args.arq = arquivoJson
     arquivoDeSaida = args.save
     '''
 
-	args = parser.parse_args()
+	
 	
 
 	'''
