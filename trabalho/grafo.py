@@ -3,21 +3,22 @@ import copy
 
 class Grafo(object):
     def __init__(self):
-        self.algoritimoDeOrdenacao = None
+        self.algoritmoDeOrdenacao = None
         self.vertices = None
         self.arestas = None
         return
 
-    def _algortmoDeOrdencaoErro(self):
-        if self.algoritimoDeOrdenacao is None: 
+    def _algoritmoDeOrdenacaoErro(self):
+        if self.algoritmoDeOrdenacao is None: 
             print('Algoritmo de Ordencação Nulo, finalizando programa.')
             raise ValueError
 
-    def estabelecerAlgoritmoDeOrdencao(self, algoritimoDeOrdenacao):
-        self.algoritimoDeOrdenacao = algoritimoDeOrdenacao
+    def estabelecerAlgoritmoDeOrdenacao(self, algoritmoDeOrdenacao):
+        print(algoritmoDeOrdenacao)
+        self.algoritmoDeOrdenacao = algoritmoDeOrdenacao
 
     def executarKruskal(self):
-        self._algortmoDeOrdencaoErro()
+        self._algoritmoDeOrdenacaoErro()
         return self._kruskal()
 
     def _conectaDuasArvoresDiferentes(self, floresta, aresta):
@@ -46,9 +47,8 @@ class Grafo(object):
         floresta =  [ [vertice['id'] ] for vertice in self.vertices]
         arvoreGeradoraMinima = []
 
-        # Ordencão das arestas iniciada
-        arestasOrdenadas = self.algoritimoDeOrdenacao.ordenar( copy.copy(self.arestas) )
-        # Ordencão das arestas finalizada
+        arestasOrdenadas = self.algoritmoDeOrdenacao.ordenar(self.algoritmoDeOrdenacao, copy.copy(self.arestas))
+        print('Arestas Ordenadas: ', arestasOrdenadas)
         
         while len(arestasOrdenadas):
             aresta = arestasOrdenadas.pop(0)

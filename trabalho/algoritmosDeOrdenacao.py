@@ -47,7 +47,7 @@ class insert_sort(object):
 #======================================================================================#
 
 
-class selection_sort(object):
+class select_sort(object):
     def ordenar(self,colecao):
         for i in range (0, len(colecao) - 1) :
             minIndex = i
@@ -131,9 +131,7 @@ class heap_sort(object):
 #======================================================================================#
 class count_sort(object):
 	def ordenar(self,colecao):
-		
 
-		
 		tamanho = int(len(colecao))
 		maior = int(colecao[0]['weight'])
 		menor = int(colecao[0]['weight'])
@@ -181,8 +179,8 @@ class merge_sort(object):
             esquerda = colecao[:meio]
             direita = colecao[meio:]
 
-            self.ordenar(esquerda)
-            self.ordenar(direita)
+            self.ordenar(self, esquerda)
+            self.ordenar(self, direita)
 
             i = j = k = 0
 
@@ -285,6 +283,7 @@ class quick_sort_beg(object):
 
         return (aux)
 
+#(pivo fim)
 class quick_sort_end(object):
     def ordenar(self, colecao):
         self.sort(colecao, 0, len(colecao) - 1)
