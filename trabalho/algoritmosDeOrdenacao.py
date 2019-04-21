@@ -131,11 +131,7 @@ class heap_sort(object):
 #======================================================================================#
 class count_sort(object):
 	def ordenar(self,colecao):
-		#A = colecao
-		#n = len(colecao)
-		#B = vetor aux pra guardar sequencia ordenada
-		#C = vetor de tamanho k usado como memoria temporária
-		#k = tamanho do intervalo de valores do vetor A
+		
 
 		
 		tamanho = int(len(colecao))
@@ -216,7 +212,7 @@ class merge_sort(object):
 #   							Q U I C K S O R T
 #======================================================================================#
 
-#(mediana)
+#(pivo mediana)
 class quick_sort_Mid(object):
     def ordenar(self, colecao):
         self.sort(colecao, 0, len(colecao) - 1)
@@ -256,6 +252,7 @@ class quick_sort_Mid(object):
 
         return (aux)
 
+#(pivo inicio)
 class quick_sort_beg(object):
     def ordenar(self, colecao):
         self.sort(colecao, 0, len(colecao) - 1)
@@ -288,6 +285,7 @@ class quick_sort_beg(object):
 
         return (aux)
 
+#(pivo fim)
 class quick_sort_end(object):
     def ordenar(self, colecao):
         self.sort(colecao, 0, len(colecao) - 1)

@@ -1,3 +1,5 @@
+import argparse #abrir o progrmama passando os argumentos via linha de comando
+
 from grafo import Grafo
 from algoritmosDeOrdenacao import *
 from utils import *
@@ -8,10 +10,34 @@ Instruções básicas de como fazer a implementação estão no arquivo algoritm
 '''
 
 if __name__ == "__main__":
+	parser =argparse.ArgumentParser()
+	parser.add_argument("input", type=str, required=True, dest='arq',help="Quantidade de entrada")
+	parser.add_argument("output", type=str, required=True, dest='save', help="Nome do arquivo de Saída")
+	parser.add_argument("algoritmo",  action='store_true', help="Algoritmo de ordenacao")
+	
 
-    algoritimoDeOrdenacao = quick_sort_end()
+	#teste
+	if args.algoritmo == "insert":
+		algoritimoDeOrdenacao = insert_sort()
+
+	if args.arq == "arquivoJson":
+		args.arq = './grafos/7vertices.json'
+
+	if args.save == "arquivoJson":
+		args.save = './arvores_geradas/insert.txt'
+
+	'''
+	args.arq = arquivoJson
+    arquivoDeSaida = args.save
+    '''
+
+	args = parser.parse_args()
+	
+
+	'''
     arquivoJson = './grafos/7vertices.json'
     arquivoDeSaida = './arvores_geradas/quickbeg.txt'
+    '''
 
     grafo = Grafo()
     grafo.estabelecerAlgoritmoDeOrdencao(algoritimoDeOrdenacao)
@@ -19,3 +45,6 @@ if __name__ == "__main__":
 
     arvoreGeradoraMinima =  grafo.executarKruskal() 
     SalvarArvoreGeradoraMinimaEmArquivo(arquivoDeSaida, arvoreGeradoraMinima)
+
+
+    print("funcionou")
