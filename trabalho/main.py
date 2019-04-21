@@ -23,7 +23,7 @@ if __name__ == "__main__":
 	if args.arq == "arquivoJson":
 		args.arq = './grafos/7vertices.json'
 
-	if args.save == "arquivoJson":
+	if args.save == "arquivoDeSaida":
 		args.save = './arvores_geradas/insert.txt'
 
 	'''
