@@ -273,11 +273,11 @@ class heap_sort(object):
     comparacao = 0
     atribuicao = 0
     def ordenar(self,colecao):
-        def buil_max_heap(colecao):
+        def buil_max_heap(self,colecao):
             for i in range (len(colecao)-1,0,-1):
                 colecao[0], colecao[i] = colecao[i], colecao[0]
                 self.atribuicao +=2
-                self.max_heapify(colecao,index=0,size=1)
+                self.max_heapify(self,colecao,index=0,size=1)
 
         print("Comparacoes: ",self.comparacao)
         print("Atribuicoes: ",self.atribuicao)
@@ -292,7 +292,7 @@ class heap_sort(object):
     def hi(i):
         return 2*i+2
 
-    def buil_max_heap(colecao):
+    def buil_max_heap(self,colecao):
         length = len(colecao)
         start = parent(length-1)
         self.atribuicao +=2
@@ -304,7 +304,7 @@ class heap_sort(object):
             start = start -1
             self.atribuicao +=1
 
-    def max_heapify(colecao, index, size):
+    def max_heapify(self,colecao, index, size):
         l = low(index)
         r = hi(index)
         self.atribuicao +=2
